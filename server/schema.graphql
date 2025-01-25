@@ -1,0 +1,57 @@
+type Query {
+  jobs(limit: Int, offset: Int): itemsList
+  companies: [Company!]
+  job(id: ID!): Job
+  company(id: ID!): Company
+}
+
+type itemsList {
+  items: [Job!]!
+  totalItemsCount: Int!
+}
+
+type Mutation {
+  createJob(input: createJobInput!): Job
+  deleteJob(id: ID!): Job
+  updateJob(input: updateJobInput!): Job
+}
+
+input updateJobInput {
+  id: ID!
+  title: String
+  description: String
+}
+
+input createJobInput {
+  title: String!
+  description: String
+}
+
+#documatation for the Job type
+"""
+the __Job__ type represents a job position that is available for application.
+"""
+type Job {
+  """
+  __id__ of the company that posted the job
+  """
+  id: ID!
+  companyId: ID!
+  title: String!
+  description: String
+  """
+  The __date__ the job was posted and this is in ISO-8601 format.E.g. `2022-12-31`.
+  """
+  date: String
+  company: Company
+}
+
+"""
+The __Company__ type represents a company that has posted a job.
+"""
+type Company {
+  id: ID!
+  name: String!
+  description: String
+  jobs: [Job!]
+}

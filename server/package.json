@@ -1,0 +1,30 @@
+{
+  "name": "job-board-server",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "apollo3-cache-persist": "^0.15.0",
+    "better-sqlite3": "^9.0.0",
+    "cors": "^2.8.5",
+    "dataloader": "^2.2.3",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "graphql": "^16.10.0",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^3.0.1",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.5",
+    "nanoid": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "nodemonConfig": {
+    "ext": "graphql,js"
+  }
+}
